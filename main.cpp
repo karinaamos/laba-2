@@ -1,17 +1,25 @@
 #include <iostream>
-#include "Fraction.h"
+#include "fraction.h"
 
 int main(){
+    int32_t num = 0;
+    int32_t denom = 1;
+    double n = 0.0;
+    int32_t temp = 0;
+    int32_t* pointer_temp = &temp;
+    std::cout << "ВВедите числитель" << std::endl;
+    std::cin >> num;
+    std::cout << std::endl;
+    std::cout << "ВВедите знаменатель" << std::endl;
+    std::cin >> denom;
+    std::cout << "ВВедите десятичную дробь" << std::endl;
+    std::cin >> n;
 
-    Fraction fract = Fraction(1, 2);
-    std::cout << fract;
+    Fraction fract(num, denom);
+    fract.Print();
 
-    Fraction fract_copy = Fraction(fract);
-    std::cout << fract_copy;
+    Fraction fract1(n, pointer_temp);
+    fract1.PrintD(n, pointer_temp);
 
-    Fraction* MassivFraction = new Fraction[5];
-    delete [] MassivFraction;
-
-    Fraction* fract_pointer = new Fraction();
-    delete fract_pointer;
+    return 0;
 }
